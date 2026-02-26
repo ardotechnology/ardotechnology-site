@@ -1,0 +1,29 @@
+[
+  {
+    "name": "ARDO Technology",
+    "address": "Av. Antea 1088 Piso 3 Col. Jurica, Querétaro, Querétaro, 76100",
+    "phone": "+52 442 980 3200",
+    "email": "contacto@ardo.technology",
+    "website": "https://ardo.technology",
+    "lat": 20.6731029,
+    "lng": -100.4413366
+  },
+  {
+    "name": "RCL Soluciones Tecnológicas",
+    "address": "Av Las Flores No. 19, Buenos Aires, Apaseo el Alto",
+    "phone": "+52 413 113 6660",
+    "email": "fsanchez@rclst.com",
+    "website": "https://rclst.com",
+    "lat": 20.46130979326125,
+    "lng": -100.62325713047399
+  },
+  {
+    "name": "Jessica Tejeda",
+    "address": "Pitahayas 2, Zibatá",
+    "phone": "+52 442 322 5359",
+    "email": "jtejeda@setiqro.com",
+    "website": "",
+    "lat": 20.683872,
+    "lng": -100.31693
+  }
+]

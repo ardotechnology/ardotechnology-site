@@ -1,0 +1,29 @@
+[
+{
+    "name": "ARDO Technology",
+    "address": "Blvd. Fco. Medina Ascencio, S/N. Col. Olimpica, C.P. 48300",
+    "phone": "+52 442 980 3200",
+    "email": "cuentas@ardo.technology",
+    "website": "https://ardo.technology",
+    "lat": 20.6408409,
+    "lng": -105.3067724
+  },
+{
+    "name": "Victor Hugo Arias Tellez",
+    "address": "Av. Antea 1088 Piso 3 Col. Jurica, Querétaro, Querétaro, 76100",
+    "phone": "+52 442 980 3200",
+    "email": "victor@ardo.technology",
+    "website": "https://ardo.technology",
+    "lat": 20.6914678,
+    "lng": -100.4508963
+  },
+  {
+    "name": "Soluciones Guadalajara",
+    "address": "Av. Vallarta 2440, Arcos Vallarta, 44130 Guadalajara, Jal.",
+    "phone": "+52 33 1111 2222",
+    "email": "info@solucionesgdl.com",
+    "website": "https://www.solucionesgdl.com",
+    "lat": 20.6736,
+    "lng": -103.3768
+  }
+]

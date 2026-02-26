@@ -1,0 +1,22 @@
+{
+    "title": "¿Cómo funciona la telefonía en la nube?",
+    "slug": "como-funciona-telefonia-nube",
+    "date": "2025-12-29",
+    "author": "Equipo ARDO",
+    "category": "TECNOLOGÍA",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000&auto=format&fit=crop",
+    "tags": [
+        "Funcionamiento Técnico",
+        "VoIP",
+        "SIP Trunking",
+        "Infraestructura",
+        "Ingeniería"
+    ],
+    "excerpt": "Desmitificamos la magia. Una explicación clara y técnica del viaje de su voz desde que dice \"Hola\" hasta que llega al otro lado del mundo a través de internet.",
+    "content": "<p>Para muchos, la \"nube\" es un concepto etéreo. En la telefonía, sin embargo, es una estructura de ingeniería muy tangible y precisa. Entender cómo funciona le ayudará a dimensionar mejor su red y a confiar en la tecnología. Desglosémoslo paso a paso.</p><h2>El Concepto Base: VoIP (Voz sobre IP)</h2><p>A diferencia de la telefonía tradicional que funciona conmutando circuitos eléctricos físicos, la telefonía en la nube funciona conmutando paquetes de datos, igual que su correo electrónico o Netflix. Su voz se convierte en datos.</p><h2>El Viaje paso a paso de una Llamada</h2><h3>1. Captura y Codificación (Codec)</h3><p>Cuando usted habla al micrófono, la señal analógica de su voz se digitaliza. Un software llamado <strong>Codec</strong> comprime esta información. Codecs modernos como OPUS o G.722 muestrean el audio miles de veces por segundo para capturar matices que la telefonía antigua perdía, logrando \"Alta Definición\".</p><h3>2. Empaquetado y Transporte (RTP)</h3><p>Esos datos digitales se dividen en pequeños paquetes (RTP - Real-time Transport Protocol). Cada paquete viaja por su red local, pasa por su router y sale a Internet. Aquí es vital la <strong>Calidad de Servicio (QoS)</strong> en su red, para dar prioridad a estos paquetes de voz sobre los de YouTube o descargas, evitando cortes o voz robotizada.</p><h3>3. El Cerebro: El PBX en la Nube (Servidor SIP)</h3><p>Los paquetes llegan a nuestro Data Center. Aquí, el softswitch (el conmutador virtual):</p><ul><li>Identifica quién llama y si tiene permiso.</li><li>Aplica reglas: ¿Es hora laboral? ¿Debe grabarse? ¿Debe sonar en 3 teléfonos a la vez?</li><li>Determina el destino.</li></ul><h3>4. Terminación y Transcodificación</h3><ul><li><strong>Si llama a otro usuario VoIP:</strong> La llamada se mantiene 100% digital, viajando por internet hasta el dispositivo del receptor. Calidad máxima.</li><li><strong>Si llama a un fijo o celular tradicional:</strong> Nuestro servidor conecta con la PSTN (Red Telefónica Pública Conmutada) a través de troncales SIP. Convertimos la señal digital de vuelta a un formato que Telmex o AT&T entiendan para entregar la llamada al teléfono análogo de su cliente.</li></ul><h2>Requisitos Técnicos Mínimos</h2><p>Para que esta orquesta funcione, su empresa necesita:</p><ul><li><strong>Ancho de Banda:</strong> Una llamada de alta calidad consume aprox. 100 kbps (subida y bajada). Una conexión de fibra óptica básica de 50 Megas puede soportar teóricamente cientos de llamadas simultáneas, siempre que sea estable.</li><li><strong>Latencia Baja:</strong> Lo ideal es menos de 100ms hacia el servidor del proveedor.</li><li><strong>Red Cableada (Preferible):</strong> Aunque el Wi-Fi moderno funciona bien, el cable Ethernet siempre será rey para teléfonos de escritorio, garantizando cero interferencia.</li></ul><h2>Conclusión</h2><p>La telefonía en la nube no es magia, es la evolución eficiente de la comunicación, aprovechando la infraestructura de internet que ya pagamos y usamos todos los días.</p>",
+    "meta": {
+        "title": "¿Cómo funciona la Telefonía IP y PBX Nube? | Explicación Técnica",
+        "description": "Explicación detallada del funcionamiento técnico de VoIP. Codecs, protocolos SIP/RTP, requerimientos de ancho de banda y latencia.",
+        "keywords": "como funciona voip, protocolo sip explicado, arquitectura pbx nube, codecs audio hd, requisitos red voip"
+    }
+}

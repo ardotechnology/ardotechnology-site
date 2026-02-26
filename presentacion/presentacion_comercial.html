@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Comercial | ARDO Technology</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- LineIcons 5.0 -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css">
+
+    <style>
+        :root {
+            --ardo-primary: #00F0FF;
+            --ardo-midnight: #050505;
+            --ardo-deep-blue: #0A192F;
+            --ardo-surface: #F8FAFB;
+            --ardo-border: #E2E8F0;
+            --ardo-text-muted: #1A202C;
+            --ardo-text-main: #050505;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --slide-transition: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            --ardo-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-display);
+            background-color: var(--ardo-surface);
+            color: var(--ardo-midnight);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* PDF Generation Styles */
+        body.printing-mode {
+            overflow: visible !important;
+            height: auto !important;
+        }
+
+        body.printing-mode .nav-dots,
+        body.printing-mode .nav-arrow,
+        body.printing-mode .export-btn {
+            display: none !important;
+        }
+
+        body.printing-mode .animate {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+            transition: none !important;
+        }
+
+
+
+        #pdf-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00F0FF;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 240, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #00F0FF;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Slide System */
+        .presentation-container {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides-wrapper {
+            height: 100%;
+            transition: var(--slide-transition);
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 4rem;
+            overflow: hidden;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(10, 25, 47, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: var(--ardo-primary);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+            transform: scale(1.2);
+        }
+
+        /* PDF Button */
+        .export-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: var(--ardo-primary);
+            color: var(--ardo-midnight);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Typography */
+        .text-huge {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        .text-cyan {
+            color: var(--ardo-primary);
+        }
+
+        .label-mono {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--ardo-midnight);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .slide-hero .label-mono {
+            color: var(--ardo-primary);
+        }
+
+        /* Components */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--ardo-border);
+            border-radius: 2rem;
+            padding: 4rem;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 25, 47, 0.05);
+            color: var(--ardo-midnight);
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .bento-item {
+            background: #FFFFFF;
+            border: 1px solid var(--ardo-border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--ardo-shadow-sm);
+        }
+
+        .bento-item:hover {
+            background: var(--ardo-surface);
+            border-color: var(--ardo-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.1);
+        }
+
+        .bento-item i {
+            font-size: 2.5rem;
+            color: var(--ardo-primary);
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .bento-item:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .bento-item h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .bento-item p {
+            font-size: 0.85rem;
+            color: var(--ardo-midnight);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Timeline Styles */
+        .timeline-vertical {
+            position: relative;
+            padding-left: 3rem;
+            margin-top: 2rem;
+            border-left: 2px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -3.45rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            background: var(--ardo-midnight);
+            border: 2px solid var(--ardo-primary);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 10px var(--ardo-primary);
+        }
+
+        .timeline-year {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--ardo-midnight);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-text {
+            font-size: 0.95rem;
+            color: var(--ardo-text-muted);
+            line-height: 1.5;
+        }
+
+        /* Ecosystem Diagram Styles */
+        .ecosystem-container {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eco-label-outer {
+            position: absolute;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--ardo-midnight);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            z-index: 10;
+        }
+
+        .eco-label-top {
+            transform: translateY(-320px);
+            background: var(--ardo-primary);
+            color: var(--ardo-midnight);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .eco-outer-ring {
+            position: absolute;
+            width: 590px;
+            height: 590px;
+            border: 2px dashed rgba(10, 25, 47, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .eco-center {
+            width: 140px;
+            height: 140px;
+            background: var(--ardo-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 900;
+            color: var(--ardo-midnight);
+            font-size: 1rem;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+            text-transform: uppercase;
+        }
+
+        .eco-node {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 15px;
+            transition: all 0.3s;
+            cursor: default;
+            z-index: 6;
+            line-height: 1.2;
+        }
+
+        .node-pbx {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(0, -200px);
+        }
+
+        .node-ucaas {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(180px, -100px);
+        }
+
+        .node-sip {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(180px, 100px);
+        }
+
+        .node-admin {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(0, 200px);
+        }
+
+        .node-lte {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(-180px, 100px);
+        }
+
+        .node-cloud {
+            background: var(--ardo-midnight);
+            color: var(--ardo-primary);
+            border: 2px solid var(--ardo-primary);
+            transform: translate(-180px, -100px);
+        }
+
+        .node-sip span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 6px;
+            opacity: 0.8;
+            color: var(--ardo-primary);
+        }
+
+        .eco-connection {
+            position: absolute;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        /* Slide Specifics */
+        .slide-hero {
+            background: linear-gradient(rgba(248, 250, 251, 0.9), rgba(248, 250, 251, 0.95)), url('assets/presentation_hero.png') center/cover no-repeat;
+        }
+
+        .slide-nosotros {
+            background: linear-gradient(rgba(248, 250, 251, 0.95), rgba(248, 250, 251, 0.95)), url('assets/nosotros.jpg') center/cover no-repeat;
+        }
+
+        .slide-content {
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Nav Arrows */
+        .nav-arrow {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2rem;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            transition: color 0.3s;
+        }
+
+        .nav-arrow:hover {
+            color: var(--ardo-primary);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* Header in slides */
+        .slide-header {
+            position: absolute;
+            top: 3rem;
+            left: 4rem;
+            z-index: 10;
+        }
+
+        .logo {
+            height: 48px;
+            /* Invert white logo to black for general use if needed, but here we want it black for PDF on white background */
+            filter: invert(1) brightness(0);
+        }
+
+        /* Animations */
+        @keyframes fadeInOut {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInOut 0.8s forwards;
+            opacity: 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                overflow: visible !important;
+                background: white !important;
+                color: black !important;
+            }
+
+            .presentation-container {
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            .slides-wrapper {
+                transform: none !important;
+                transition: none !important;
+            }
+
+            .slide {
+                height: 100vh !important;
+                page-break-after: always;
+                display: flex !important;
+                background: white !important;
+                color: black !important;
+                padding: 2rem !important;
+            }
+
+            .slide-hero {
+                background: none !important;
+                color: black !important;
+            }
+
+            .slide-hero::before {
+                content: "[Imagen: Conectividad Global ARDO]";
+                display: block;
+                margin-bottom: 2rem;
+                font-style: italic;
+            }
+
+            .glass-panel {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+
+            .bento-item {
+                background: #f9f9f9 !important;
+                border: 1px solid #ddd !important;
+                color: black !important;
+            }
+
+            .bento-item p {
+                color: #555 !important;
+            }
+
+            .nav-dots,
+            .export-btn {
+                display: none !important;
+            }
+
+            .text-cyan {
+                color: #0088cc !important;
+            }
+
+            .label-mono {
+                color: #666 !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .text-huge {
+                font-size: 3rem;
+            }
+
+            .glass-panel {
+                padding: 2rem;
+            }
+        }
+
+        /* Tablet Landscape Optimization */
+        @media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+            .slide {
+                padding: 2rem;
+                /* Reduce padding from 4rem */
+            }
+
+            .text-huge {
+                font-size: 4rem;
+                /* Scale down from 7rem max */
+            }
+
+            .glass-panel {
+                padding: 2.5rem;
+                /* Reduce form 4rem */
+                max-width: 95%;
+            }
+
+            .bento-grid {
+                gap: 1rem;
+                /* Tighter grid */
+            }
+
+            /* Scale down ecosystem for height fit */
+            .ecosystem-container {
+                transform: scale(0.75);
+                transform-origin: center center;
+            }
+
+            /* Adjust bento font sizes */
+            .bento-item h4 {
+                font-size: 1rem;
+            }
+
+            .bento-item p {
+                font-size: 0.85rem;
+            }
+
+            /* Reduce gap in main grids (overriding inline styles) */
+            .slide-content>div[style*="grid-template-columns"] {
+                gap: 2rem !important;
+            }
+
+            /* Align header with padding */
+            .slide-header {
+                top: 2rem;
+                left: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="export-btn" onclick="exportToPDF()">
+        <i class="lni lni-save"></i> GUARDAR COMO PDF
+    </button>
+
+    <div class="nav-dots" id="navDots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+        <div class="dot" onclick="goToSlide(3)"></div>
+        <div class="dot" onclick="goToSlide(4)"></div>
+        <div class="dot" onclick="goToSlide(5)"></div>
+        <div class="dot" onclick="goToSlide(6)"></div>
+        <div class="dot" onclick="goToSlide(7)"></div>
+        <div class="dot" onclick="goToSlide(8)"></div>
+        <div class="dot" onclick="goToSlide(9)"></div>
+        <div class="dot" onclick="goToSlide(10)"></div>
+        <div class="dot" onclick="goToSlide(11)"></div>
+        <div class="dot" onclick="goToSlide(12)"></div>
+    </div>
+
+    <div class="presentation-container">
+        <!-- PDF Loader -->
+        <div id="pdf-loader">
+            <div class="loader-spinner"></div>
+            <p>GENERANDO PDF DE ALTA FIDELIDAD...</p>
+            <p style="font-size: 12px; margin-top: 10px; opacity: 0.7;">Esto puede tomar unos segundos.</p>
+        </div>
+        <div class="slides-wrapper" id="slidesWrapper">
+
+            <!-- Slide 1: Welcome -->
+            <section class="slide slide-hero">
+                <div class="slide-header">
+                    <img src="assets/logo.png" alt="Ardo" class="logo">
+                </div>
+                <div class="slide-content">
+                    <span class="label-mono animate" style="animation-delay: 0.2s;">Presentación Corporativa 2026</span>
+                    <h1 class="text-huge animate" style="animation-delay: 0.4s;">
+                        Infraestructura de <br><span class="text-cyan">Poder</span> para el Futuro
+                    </h1>
+                    <p class="animate"
+                        style="animation-delay: 0.6s; margin-top: 2rem; max-width: 600px; font-size: 1.2rem; opacity: 0.8;">
+                        Soluciones críticas de telecomunicaciones y TI diseñadas para empresas que no pueden detenerse.
+                    </p>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(1)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 2: Nosotros & Trayectoria -->
+            <section class="slide slide-nosotros">
+                <div class="slide-content">
+                    <div class="glass-panel animate">
+                        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;">
+                            <div>
+                                <span class="label-mono">Nuestra Historia</span>
+                                <h2 class="text-huge"
+                                    style="font-size: 2.8rem; margin-bottom: 2rem; color: var(--ardo-midnight);">
+                                    Evolución
+                                    <br><span class="text-cyan">Tecnológica</span>
+                                </h2>
+                                <p
+                                    style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 2rem; color: var(--ardo-midnight);">
+                                    De una startup de desarrollo a un ecosistema integral de infraestructura crítica.
+                                    Construimos el puente entre la vanguardia y la operación real.
+                                </p>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                    <div class="bento-item" style="padding: 1.5rem;">
+                                        <h4 class="text-cyan" style="font-size: 1.8rem; font-weight: 900;">99.99%</h4>
+                                        <p class="label-mono" style="font-size: 8px;">Disponibilidad</p>
+                                    </div>
+                                    <div class="bento-item" style="padding: 1.5rem;">
+                                        <h4 class="text-cyan" style="font-size: 1.8rem; font-weight: 900;">Regional</h4>
+                                        <p class="label-mono" style="font-size: 8px;">Alcance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="timeline-vertical">
+                                    <div class="timeline-step animate" style="animation-delay: 0.2s;">
+                                        <span class="timeline-year">2018 - El Inicio</span>
+                                        <p class="timeline-text">Nace ARDO con la visión de democratizar el software de
+                                            alta calidad para PyMEs en México.</p>
+                                    </div>
+                                    <div class="timeline-step animate" style="animation-delay: 0.4s;">
+                                        <span class="timeline-year">2019 - Expansión</span>
+                                        <p class="timeline-text">Apertura de operaciones en Miami, FL, sirviendo como
+                                            puente tecnológico global.</p>
+                                    </div>
+                                    <div class="timeline-step animate" style="animation-delay: 0.6s;">
+                                        <span class="timeline-year">2023 - Consolidación</span>
+                                        <p class="timeline-text">Evolución a Carrier de Telecomunicaciones con
+                                            infraestructura Cloud propia y cobertura nacional.</p>
+                                    </div>
+                                    <div class="timeline-step animate" style="animation-delay: 0.8s;">
+                                        <span class="timeline-year">2025 - Carrier Digital</span>
+                                        <p class="timeline-text">Procesos 100% digitalizados. El primer Carrier Digital
+                                            nativo de nueva generación.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(2)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 3: Ecosistema Conectado -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                        <div>
+                            <span class="label-mono animate">Ecosistema Business Ready</span>
+                            <h2 class="text-huge animate" style="font-size: 2.8rem; margin-bottom: 2rem;">Un Ecosistema
+                                <br><span class="text-cyan">Conectado</span>
+                            </h2>
+                            <p class="animate" style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 3rem;">
+                                El valor de la integración. Nuestros servicios están diseñados para ser excelentes por
+                                sí solos, pero son transformadores cuando trabajan juntos.
+                            </p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div class="animate" style="animation-delay: 0.1s;">
+                                    <h4 class="text-cyan" style="font-size: 1rem; margin-bottom: 0.5rem;">Gestión
+                                        Simplificada</h4>
+                                    <p style="font-size: 0.85rem; opacity: 0.6;">Un solo socio, una sola factura, un
+                                        único punto de contacto.</p>
+                                </div>
+                                <div class="animate" style="animation-delay: 0.2s;">
+                                    <h4 class="text-cyan" style="font-size: 1rem; margin-bottom: 0.5rem;">Costos
+                                        Optimizados</h4>
+                                    <p style="font-size: 0.85rem; opacity: 0.6;">Eliminación de redundancias y mayor
+                                        eficiencia operativa.</p>
+                                </div>
+                                <div class="animate" style="animation-delay: 0.3s;">
+                                    <h4 class="text-cyan" style="font-size: 1rem; margin-bottom: 0.5rem;">Seguridad 360°
+                                    </h4>
+                                    <p style="font-size: 0.85rem; opacity: 0.6;">Protección integral desde la nube hasta
+                                        el dispositivo final.</p>
+                                </div>
+                                <div class="animate" style="animation-delay: 0.4s;">
+                                    <h4 class="text-cyan" style="font-size: 1rem; margin-bottom: 0.5rem;">Soporte
+                                        Prioritario</h4>
+                                    <p style="font-size: 0.85rem; opacity: 0.6;">Atención experta y personalizada para
+                                        su infraestructura.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ecosystem-container animate" style="animation-delay: 0.5s;">
+                            <div class="eco-label-outer eco-label-top">Navegación segura</div>
+                            <div class="eco-outer-ring"></div>
+                            <div class="eco-center">SU EMPRESA</div>
+                            <div class="eco-node node-pbx">PBX Cloud</div>
+                            <div class="eco-node node-ucaas">UCaaS</div>
+                            <div class="eco-node node-sip">Troncales SIP <span>Números Virtuales</span></div>
+                            <div class="eco-node node-admin">Servicios Administrados</div>
+                            <div class="eco-node node-lte">Conectividad Global LTE</div>
+                            <div class="eco-node node-cloud">Servidores Cloud</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(3)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 3: Mapa de Cobertura -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <span class="label-mono">Presencia Robusta</span>
+                            <h2 class="text-huge" style="font-size: 3.5rem; margin-bottom: 2rem;">Mapa de <br><span
+                                    class="text-cyan">Cobertura</span></h2>
+                            <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 2.5rem;">
+                                Conectamos cada punto de su éxito con nuestra **infraestructura propia**. Operamos una
+                                de las redes más modernas y estables del país.
+                            </p>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                                <div>
+                                    <h4
+                                        style="color: var(--ardo-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
+                                        95+</h4>
+                                    <p class="label-mono">Ciudades en México</p>
+                                </div>
+                                <div>
+                                    <h4
+                                        style="color: var(--ardo-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">
+                                        4+</h4>
+                                    <p class="label-mono">Regiones (Hubs)</p>
+                                </div>
+                                <div style="grid-column: span 2;">
+                                    <div
+                                        style="background: rgba(0, 240, 255, 0.1); border-left: 3px solid var(--ardo-primary); padding: 1rem; border-radius: 0 1rem 1rem 0;">
+                                        <p style="font-size: 0.9rem; opacity: 0.8;">
+                                            <strong>Infraestructura Propia:</strong> Controlamos la calidad del servicio
+                                            de extremo a extremo, garantizando latencias mínimas (12ms promedio).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: var(--ardo-midnight); font-weight: 700; margin-top: 2rem;">
+                                Su conectividad, garantizada por nuestra propia red.
+                            </p>
+                        </div>
+                        <div class="animate"
+                            style="animation-delay: 0.3s; position: relative; border-radius: 2rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                            <img src="assets/mapa_cobertura.png" alt="Ardo Coverage Map"
+                                style="width: 100%; height: auto; display: block;">
+                            <div
+                                style="position: absolute; bottom: 2rem; left: 2rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding: 1rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1);">
+                                <p
+                                    style="font-size: 0.7rem; font-family: var(--font-mono); color: var(--ardo-primary);">
+                                    ESTADO DE RED: ÓPTIMO</p>
+                                <p style="font-size: 1.1rem; font-weight: 800; color: var(--ardo-primary);">
+                                    DISPONIBILIDAD 99.9%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(4)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 4: PBX Cloud -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-phone-set"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 3.5rem; margin-bottom: 1rem;">PBX <span
+                                    class="text-cyan">Cloud</span></h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;">
+                                Su conmutador profesional, sin complicaciones.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                Proyecte una imagen corporativa de primer nivel y brinde a su equipo o sus clientes la
+                                flexibilidad de trabajar desde cualquier lugar.
+                            </p>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: var(--ardo-midnight); font-weight: 700;">
+                                Olvídese de comprar, mantener y reparar equipos costosos.
+                            </p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--ardo-midnight); border-color: var(--ardo-primary);">
+                                <i class="lni lni-check-mark-circle"
+                                    style="font-size: 1.5rem; margin-bottom: 0; color: var(--ardo-primary);"></i>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary); font-weight: 700;">Extensiones
+                                    ilimitadas.</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--ardo-midnight); border-color: var(--ardo-primary);">
+                                <i class="lni lni-check-mark-circle"
+                                    style="font-size: 1.5rem; margin-bottom: 0; color: var(--ardo-primary);"></i>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary); font-weight: 700;">Bolsa de
+                                    minutos incluídos a
+                                    números fijos y celulares en México.*</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--ardo-midnight); border-color: var(--ardo-primary);">
+                                <i class="lni lni-check-mark-circle"
+                                    style="font-size: 1.5rem; margin-bottom: 0; color: var(--ardo-primary);"></i>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary); font-weight: 700;">
+                                    Transferencia de llamadas, buzón
+                                    de voz, contestadora digital.</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--ardo-midnight); border-color: var(--ardo-primary);">
+                                <i class="lni lni-check-mark-circle"
+                                    style="font-size: 1.5rem; margin-bottom: 0; color: var(--ardo-primary);"></i>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary); font-weight: 700;">Números de
+                                    teléfono de más de 95
+                                    ciudades en México.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(5)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 5: Navegación Segura -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-shield"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 2.8rem; margin-bottom: 1rem;">Navegación <span
+                                    class="text-cyan">Segura</span></h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;">
+                                Protección proactiva para su red.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                La mayor parte de las amenazas cibernéticas, como el ransomware y el phishing, llegan a
+                                través de internet. Nuestra solución, potenciada por <strong>FlashStart</strong>, las
+                                bloquea antes de que entren a su red.
+                            </p>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: var(--ardo-midnight); font-weight: 700;">
+                                Seguridad que no se ve, pero que siempre está activa.
+                            </p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(0, 240, 255, 0.05); border-color: var(--ardo-primary);">
+                                <span class="label-mono"
+                                    style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 1rem;">Bloqueo
+                                    de Amenazas</span>
+                                <p style="font-size: 1.1rem; color: var(--ardo-midnight); font-weight: 600;">
+                                    <strong>Filtra el acceso</strong> a sitios maliciosos, listas negras, apuestas,
+                                    contenido inapropiado, fraudulentos (phishing) y de malware en <strong>tiempo
+                                        real</strong>.
+                                </p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(0, 240, 255, 0.05); border-color: var(--ardo-primary);">
+                                <span class="label-mono"
+                                    style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 1rem;">Aumento
+                                    de Productividad</span>
+                                <p style="font-size: 1.1rem; color: var(--ardo-midnight); font-weight: 600;">
+                                    Permite crear políticas para <strong>restringir el acceso</strong> a redes sociales,
+                                    plataformas de streaming y otros sitios no productivos durante el horario laboral.
+                                    <strong>Protege</strong> a todos los dispositivos conectados a su red.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(6)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 5: UCaaS -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-video"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 2.8rem; margin-bottom: 1rem;">UCaaS</h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">
+                                Su oficina conectada en un solo lugar.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                Integre todas sus herramientas de comunicación en un solo lugar. Es la evolución de la
+                                colaboración.
+                            </p>
+                            <div
+                                style="background: rgba(0, 255, 133, 0.1); border-left: 3px solid #00FF85; padding: 1.5rem; border-radius: 0 1rem 1rem 0; margin-bottom: 2rem;">
+                                <p style="font-size: 0.95rem; line-height: 1.6;">
+                                    <strong>Experiencia Fluída:</strong> Facilite el trabajo en equipo entre personal en
+                                    oficina, remoto o híbrido.
+                                </p>
+                            </div>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: #00FF85; font-weight: 700;">
+                                Menos aplicaciones, más colaboración.
+                            </p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(0, 255, 133, 0.05);">
+                                <span class="label-mono"
+                                    style="color: var(--ardo-midnight); margin-bottom: 0.5rem;">Productividad
+                                    total</span>
+                                <p
+                                    style="font-size: 1rem; color: var(--ardo-midnight); line-height: 1.6; font-weight: 600;">
+                                    Llamadas de voz, Video Conferencias, Chat, WhatsApp, Facebook Messenger, SMS,
+                                    WebChat. Todo en una aplicación intuitiva con Reportes y Contestadora Digital.
+                                </p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; border-color: rgba(0, 255, 133, 0.3);">
+                                <h4 style="color: var(--ardo-midnight); margin-bottom: 0.75rem;">Integración CRM Nativa
+                                </h4>
+                                <div style="display: flex; gap: 2rem; align-items: center; opacity: 0.8;">
+                                    <span style="font-family: var(--font-mono); font-size: 12px;">ZOHO</span>
+                                    <span style="font-family: var(--font-mono); font-size: 12px;">SALESFORCE</span>
+                                    <span style="font-family: var(--font-mono); font-size: 12px;">DYNAMICS 365</span>
+                                </div>
+                            </div>
+                            <div class="bento-item animate" style="grid-column: span 6;">
+                                <i class="lni lni-mobile" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                                <h4 style="font-size: 0.9rem;">Softphone App</h4>
+                                <p style="font-size: 0.75rem;">App nativa para iOS y Android.</p>
+                            </div>
+                            <div class="bento-item animate" style="grid-column: span 6;">
+                                <i class="lni lni-laptop" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                                <h4 style="font-size: 0.9rem;">Desktop App</h4>
+                                <p style="font-size: 0.75rem;">Para Windows y Mac.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(7)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 7: Troncales SIP -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-network"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 2.8rem; margin-bottom: 1rem;">Troncales <span
+                                    class="text-cyan">SIP</span></h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;">
+                                La evolución de sus líneas telefónicas.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                Modernice la forma en que su empresa se conecta con el mundo. Las Troncales SIP
+                                reemplazan las costosas y rígidas líneas telefónicas tradicionales por líneas digitales
+                                a través de internet.
+                            </p>
+                            <div
+                                style="background: rgba(138, 43, 226, 0.1); border-left: 3px solid #8A2BE2; padding: 1.5rem; border-radius: 0 1rem 1rem 0;">
+                                <p style="font-size: 0.95rem; line-height: 1.6;">
+                                    <strong>Flexibilidad Inmediata:</strong> ¿Necesita más líneas para una campaña? Las
+                                    activamos en minutos, no en semanas.
+                                </p>
+                            </div>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: #8A2BE2; font-weight: 700; margin-top: 2rem;">
+                                Más calidad, más flexibilidad, menos costos.
+                            </p>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Ahorros significativos
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Planes Controlados
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Canales Bajo Demanda
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Cobertura Global
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Calidad de Voz
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Planes de Pre-Pago
+                            </div>
+
+                            <div class="bento-item animate"
+                                style="grid-column: span 2; margin-top: 2rem; background: rgba(255,255,255,0.05);">
+                                <h4 style="color: var(--ardo-midnight); margin-bottom: 0.5rem;">Capacidad Ilimitada</h4>
+                                <p
+                                    style="font-size: 1rem; color: var(--ardo-midnight); font-weight: 600; font-family: var(--font-mono);">
+                                    Arquitectura
+                                    escalable diseñada para
+                                    Centros de Contacto y grandes volúmenes concurrentes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(8)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 7: Números Virtuales -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-target-customer"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 2.8rem; margin-bottom: 1rem;">Números <span
+                                    class="text-cyan">Virtuales</span></h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;">
+                                Numeración DID (Direct Inward Dialing)
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                El servicio DID le permite a su empresa adquirir uno o múltiples números de teléfono
+                                virtuales locales (de cualquier ciudad o país) que dirigen la llamada directamente a su
+                                centralita Cloud PBX.
+                            </p>
+                            <div
+                                style="background: rgba(0, 240, 255, 0.1); border-left: 3px solid var(--ardo-primary); padding: 1.5rem; border-radius: 0 1rem 1rem 0;">
+                                <p style="font-size: 0.95rem; line-height: 1.6;">
+                                    <strong>Flexibilidad Inmediata:</strong> Tenga presencia local o internacional sin
+                                    necesidad de una oficina física en esa localidad.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Presencia local y global
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Acceso Directo
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Escalabilidad sin límite
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Números de Vanidad
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 2; background: var(--ardo-primary); color: var(--ardo-midnight); padding: 1rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Compatibilidad total con PBX
+                            </div>
+
+                            <div class="bento-item animate"
+                                style="grid-column: span 2; margin-top: 2rem; background: rgba(255,255,255,0.05);">
+                                <h4 style="color: var(--ardo-midnight); margin-bottom: 0.5rem;">Omnicanalidad</h4>
+                                <p
+                                    style="font-size: 1rem; color: var(--ardo-midnight); font-weight: 600; font-family: var(--font-mono);">
+                                    Integre sus
+                                    números con WhatsApp Business y
+                                    otras plataformas de mensajería para una atención integral.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(9)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 9: Servicios Administrados -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-layers"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge"
+                                style="font-size: 2.8rem; margin-bottom: 1rem; color: var(--ardo-midnight);">Servicios
+                                <br><span class="text-cyan">Administrados</span>
+                            </h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">
+                                Su equipo de TI dedicado.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2.5rem;">
+                                La tecnología debe funcionar para usted, no al revés. Delegue la gestión, monitoreo y
+                                mantenimiento de sus servicios tecnológicos a nuestros expertos.
+                            </p>
+
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.6; border-left: 2px solid #FFD700; padding-left: 1.5rem;">
+                                    <strong>Enfoque en su Negocio:</strong> Libere a su equipo de las tareas técnicas y
+                                    permítales concentrarse en las actividades que generan valor.
+                                </p>
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.6; border-left: 2px solid #FFD700; padding-left: 1.5rem;">
+                                    <strong>Operación sin Interrupciones:</strong> Monitoreamos proactivamente sus
+                                    sistemas para detectar y resolver problemas antes de que afecten su operación.
+                                </p>
+                                <p
+                                    style="font-size: 0.95rem; line-height: 1.6; border-left: 2px solid #FFD700; padding-left: 1.5rem;">
+                                    <strong>Acceso a Expertise:</strong> Cuente con el respaldo de especialistas sin el
+                                    costo de contratar un departamento de TI interno.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-midnight); color: var(--ardo-primary); padding: 1.5rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Infraestructura de TI
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-midnight); color: var(--ardo-primary); padding: 1.5rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Ciberseguridad
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-midnight); color: var(--ardo-primary); padding: 1.5rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Servidores
+                            </div>
+                            <div class="bento-item animate"
+                                style="background: var(--ardo-midnight); color: var(--ardo-primary); padding: 1.5rem; text-align: center; font-weight: 800; border-radius: 0.75rem;">
+                                Soporte Técnico
+                            </div>
+
+                            <div class="bento-item animate"
+                                style="grid-column: span 2; margin-top: 2rem; background: rgba(0, 240, 255, 0.05); border-color: var(--ardo-primary);">
+                                <h4 style="color: var(--ardo-midnight); margin-bottom: 0.5rem;">Continuidad de Negocio
+                                </h4>
+                                <p
+                                    style="font-size: 0.85rem; color: var(--ardo-midnight); font-weight: 600; font-family: var(--font-mono);">
+                                    Planes de
+                                    recuperación y SLAs garantizados
+                                    para su tranquilidad operativa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(10)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 10: Conectividad Global LTE -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-world"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge" style="font-size: 3rem; margin-bottom: 1rem;">Telefonía <span
+                                    class="text-cyan">Móvil LTE</span></h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.2;">
+                                Conexión total en cualquier lugar el mundo.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                Integre la comunicación móvil de su equipo directamente en su ecosistema de negocio.
+                            </p>
+                            <div
+                                style="background: rgba(0, 240, 255, 0.1); border-left: 3px solid var(--ardo-primary); padding: 1.5rem; border-radius: 0 1rem 1rem 0;">
+                                <p
+                                    style="font-size: 1.1rem; line-height: 1.5; font-weight: 700; color: var(--ardo-midnight);">
+                                    Nuestra cobertura Global con más de 650 carriers hace fácil mantenerse conectado sin
+                                    importar en que lugar del planeta se encuentre.
+                                </p>
+                            </div>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: var(--ardo-midnight); font-weight: 700; margin-top: 2rem;">
+                                Su oficina, ahora también en su bolsillo.
+                            </p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: var(--ardo-midnight); color: var(--ardo-primary); border-color: var(--ardo-primary);">
+                                <h3 style="color: var(--ardo-primary);">Verdadera Movilidad</h3>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary);">Sus empleados se convierten en
+                                    una extensión
+                                    de la oficina, con planes de datos y voz diseñados para el trabajo.</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: var(--ardo-midnight); color: var(--ardo-primary); border-color: var(--ardo-primary);">
+                                <h3 style="color: var(--ardo-primary);">Conectividad Confiable</h3>
+                                <p style="font-size: 1.1rem; color: var(--ardo-primary);">Asegure que su equipo de
+                                    ventas y de campo
+                                    esté siempre conectado para no perder ninguna oportunidad de negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(11)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 11: Renta de Servidores Cloud -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                        <div class="glass-panel animate">
+                            <i class="lni lni-cloud"
+                                style="font-size: 3rem; color: var(--ardo-primary); margin-bottom: 2rem;"></i>
+                            <h2 class="text-huge"
+                                style="font-size: 2.8rem; margin-bottom: 1rem; color: var(--ardo-midnight);">Servidores
+                                <span class="text-cyan">Cloud</span>
+                            </h2>
+                            <h3
+                                style="color: var(--ardo-primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">
+                                Potencia y seguridad para sus aplicaciones.
+                            </h3>
+                            <p style="opacity: 0.9; line-height: 1.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                                Hospede sus aplicaciones, sistemas y datos en una de las infraestructuras en la nube más
+                                seguras y potentes del mundo (IaaS - Infraestructura como Servicio).
+                            </p>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 12px; color: var(--ardo-midnight); font-weight: 700;">
+                                La base sólida y segura para su operación digital.
+                            </p>
+                        </div>
+                        <div class="bento-grid">
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(255, 255, 255, 0.05); border-color: rgba(255,255,255,0.1);">
+                                <h4
+                                    style="color: var(--ardo-primary); background: var(--ardo-midnight); display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 0.5rem;">
+                                    Alto Rendimiento</h4>
+                                <p style="font-size: 1rem; color: var(--ardo-midnight); font-weight: 600;">Garantice que
+                                    sus sistemas (ERP, CRM, etc.)
+                                    funcionen con la máxima velocidad y disponibilidad.</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(255, 255, 255, 0.05); border-color: rgba(255,255,255,0.1);">
+                                <h4
+                                    style="color: var(--ardo-primary); background: var(--ardo-midnight); display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 0.5rem;">
+                                    Seguridad de Clase Mundial</h4>
+                                <p style="font-size: 1rem; color: var(--ardo-midnight); font-weight: 600;">Proteja su
+                                    información más valiosa con las
+                                    robustas capas de seguridad de <strong>Oracle</strong>.</p>
+                            </div>
+                            <div class="bento-item animate"
+                                style="grid-column: span 12; background: rgba(255, 255, 255, 0.05); border-color: rgba(255,255,255,0.1);">
+                                <h4
+                                    style="color: var(--ardo-primary); background: var(--ardo-midnight); display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 0.5rem;">
+                                    Escalabilidad Eficiente</h4>
+                                <p style="font-size: 1rem; color: var(--ardo-midnight); font-weight: 600;">Pague solo
+                                    por los recursos que utiliza y
+                                    ajústelos según la demanda de su negocio, sin invertir en hardware físico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-arrow" onclick="goToSlide(12)">
+                    <i class="lni lni-chevron-down"></i>
+                </div>
+            </section>
+
+            <!-- Slide 13: Contacto -->
+            <section class="slide" style="background: linear-gradient(to top, var(--ardo-surface), #FFFFFF);">
+                <div class="slide-content text-center"
+                    style="display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--ardo-midnight);">
+                    <span class="label-mono">Contáctanos</span>
+                    <h2 class="text-huge" style="font-size: 5rem; margin-bottom: 2rem;">¿Listo para el <br><span
+                            class="text-cyan">Siguiente Nivel?</span></h2>
+                    <p
+                        style="font-size: 1.5rem; opacity: 0.9; max-width: 800px; line-height: 1.6; margin-bottom: 3rem;">
+                        Cada negocio es único. Nuestros servicios <span class="text-cyan"
+                            style="font-weight: 700;">"Business Ready"</span> son el punto de partida.
+                    </p>
+
+                    <div style="display: flex; gap: 4rem; margin-top: 3rem;">
+                        <div>
+                            <p class="label-mono">Teléfono</p>
+                            <a href="tel:8009530017"
+                                style="color: var(--ardo-midnight); text-decoration: none; font-size: 1.5rem; font-weight: 700;">800
+                                953 0017</a>
+                        </div>
+                        <div>
+                            <p class="label-mono">WhatsApp</p>
+                            <a href="https://wa.me/524429803200"
+                                style="color: var(--ardo-midnight); text-decoration: none; font-size: 1.5rem; font-weight: 700;">+52
+                                442 980 3200</a>
+                        </div>
+                        <div>
+                            <p class="label-mono">Web</p>
+                            <a href="https://ardo.technology"
+                                style="color: var(--ardo-midnight); text-decoration: none; font-size: 1.5rem; font-weight: 700;">ardo.technology</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 5rem; opacity: 0.5;">
+                        <img src="assets/logo.png" alt="Ardo" class="logo" style="height: 30px;">
+                        <p style="font-family: var(--font-mono); font-size: 10px; margin-top: 1rem;">© 2026 ARDO
+                            DE MEXICO S.A.P.I. DE C.V. TODOS LOS DERECHOS RESERVADOS.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 13;
+        const wrapper = document.getElementById('slidesWrapper');
+        const dots = document.querySelectorAll('.dot');
+        let isScrolling = false;
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            currentSlide = index;
+            wrapper.style.transform = `translateY(-${currentSlide * 100}vh)`;
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+
+            // Trigger animations in new slide
+            const activeSlide = document.querySelectorAll('.slide')[currentSlide];
+            const anims = activeSlide.querySelectorAll('.animate');
+            anims.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; // force reflow
+                el.style.animation = '';
+            });
+        }
+
+        // Mouse Wheel Navigation
+        window.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+            isScrolling = true;
+            setTimeout(() => { isScrolling = false; }, 1000);
+
+            if (e.deltaY > 0) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(currentSlide - 1);
+            }
+        });
+
+        // Keyboard Navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === ' ') {
+                goToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowUp') {
+                goToSlide(currentSlide - 1);
+            }
+        });
+
+        async function exportToPDF() {
+            const { jsPDF } = window.jspdf;
+            const slides = document.querySelectorAll('.slide');
+            const pdf = new jsPDF('l', 'px', [1920, 1080]); // Full HD Slide Size
+            const total = slides.length;
+
+            // Show loading
+            const loader = document.getElementById('pdf-loader');
+            if (loader) loader.style.display = 'flex';
+
+            try {
+                // Hide UI elements
+                document.body.classList.add('printing-mode');
+
+                for (let i = 0; i < total; i++) {
+                    const slide = slides[i];
+
+
+
+                    // Wait for rendering (Reduced to 100ms since animations are none)
+                    await new Promise(resolve => setTimeout(resolve, 100));
+
+                    const canvas = await html2canvas(slide, {
+                        scale: 2, // Mejor resolución (Retina like)
+                        useCORS: true,
+                        logging: false,
+                        backgroundColor: '#F8FAFB', // Color de fondo base
+                        windowWidth: 1920,
+                        windowHeight: 1080
+                    });
+
+                    const imgData = canvas.toDataURL('image/jpeg', 1.0); // JPEG para menor peso, calidad 100
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+                    if (i > 0) pdf.addPage([1920, 1080], 'l');
+                    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                }
+
+                pdf.save('Presentacion_Ardo_High_Fidelity.pdf');
+
+            } catch (err) {
+                console.error("PDF Generation Error: ", err);
+                alert("Hubo un error al generar el PDF: " + err.message);
+            } finally {
+                // Restore UI
+                document.body.classList.remove('printing-mode');
+                if (loader) loader.style.display = 'none';
+            }
+        }
+
+        // Initialize animations for first slide
+        window.onload = () => {
+            const activeSlide = document.querySelectorAll('.slide')[0];
+            const anims = activeSlide.querySelectorAll('.animate');
+            anims.forEach(el => el.style.opacity = '1');
+        };
+    </script>
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+
+</html>

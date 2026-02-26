@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /kyc/
+Disallow: /create_sitemap.php
+Sitemap: https://ardo.technology/sitemap.xml

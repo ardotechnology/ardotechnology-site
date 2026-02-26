@@ -1,0 +1,13 @@
+# Dashboard - Production Configuration
+# DO NOT commit production credentials to version control
+config.production.php
+
+# Log files
+dashboard_errors.log
+api_debug.log
+onboarding_debug.log
+ticket_debug.log
+
+# Temporary files
+temp_api_response.txt
+api_response.json

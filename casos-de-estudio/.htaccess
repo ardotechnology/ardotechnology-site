@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Universal Routing for Casos de Estudio
+# Handles requests like /casos-de-estudio/some-slug -> detalle.php?slug=some-slug
+# Works in both production root and local subdirectories without RewriteBase
+
+# If the file/directory doesn't exist, assume it's a slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ detalle.php?slug=$1 [L,QSA]

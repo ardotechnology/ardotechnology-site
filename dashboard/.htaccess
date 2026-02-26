@@ -1,0 +1,10 @@
+# Dashboard .htaccess
+# NOTE: This file is for Apache servers only
+# OpenLiteSpeed/LiteSpeed servers ignore this file
+
+# Prevent directory listing
+Options -Indexes
+
+# Note: Config file protection is handled at PHP level
+# OpenLiteSpeed users: Configure rewrite rules in CyberPanel
+# See OPENLITESPEED_REWRITE_RULES.txt for instructions

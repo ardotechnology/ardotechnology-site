@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #050505;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #ffffff; /* Explicit white background for document context */
+        }
+
+        .proposal-container {
+            max-width: 800px; /* Standard document width */
+            margin: 0 auto;
+        }
+
+        /* Paragraph Styling: Clean, professional, readable */
+        .proposal-text {
+            font-size: 14px; /* Standard readable size */
+            color: #333333; /* Dark gray for body text to reduce eye strain */
+            text-align: justify;
+            margin-bottom: 24px;
+            border-left: 4px solid #00F0FF; /* Signature Ardo Cyan Left Border */
+            padding-left: 20px; /* Space from the border */
+        }
+
+        .highlight-bold {
+            font-weight: 700;
+            color: #050505; /* Black for emphasis */
+        }
+
+        /* Header Styling: Industrial, uppercase */
+        .section-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 800; /* Extra bold */
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: #050505;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Decorative Element for Header */
+        .section-header::before {
+            content: '//';
+            font-family: 'JetBrains Mono', monospace;
+            color: #00F0FF; /* Cyan accent */
+            margin-right: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0;
+        }
+
+        /* Simulation of the proposal items table container */
+        .proposal-table-wrapper {
+            font-family: 'JetBrains Mono', monospace; /* Monospace for financial data */
+            font-size: 12px;
+            color: #050505;
+            background-color: #F9FAFB; /* Very light gray background for data area */
+            border: 1px solid #E5E7EB;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="proposal-container">
+        
+        <!-- Intro Paragraph -->
+        <div class="proposal-text">
+            Las redes de comunicaciones son un pilar fundamental en la tecnología de cualquier empresa, organización o institución. 
+            Para garantizar una infraestructura escalable y robusta, es esencial implementar un diseño de red inteligente que centralice los servicios y aplicaciones. 
+            Con el objetivo de modernizar la comunicación de voz y reducir costos, se le propone a <span class="highlight-bold">{proposal_proposal_to}</span> la implementación de un sistema telefónico basado en tecnología IP. 
+            Esta solución es económica, fiable y robusta, proporcionando mayores funcionalidades a un costo reducido en implementación, mantenimiento y renovación de licencias. 
+            La presente propuesta cubre los servicios básicos de telefonía, con opciones de mejoras y actualizaciones tecnológicas.
+        </div>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            Propuesta económica mensual.
+        </div>
+
+        <!-- Proposal Items Placeholder -->
+        <div class="proposal-table-wrapper">
+            {proposal_items}
+        </div>
+
+    </div>
+
+</body>
+</html>

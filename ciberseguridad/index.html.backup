@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Localization -->
+    <title>FlashStart DNS Filtering | Ciberseguridad y Protección Web Empresarial México</title>
+    <meta name="description"
+        content="FlashStart: Solución de ciberseguridad con filtrado DNS inteligente. Protege tu empresa contra malware, ransomware, phishing y amenazas cibernéticas. Empresas de ciberseguridad en México confían en FlashStart.">
+    <meta name="keywords"
+        content="ciberseguridad, ciberseguridad mexico, empresas de ciberseguridad, seguridad informática, filtrado dns, dns seguro, protección malware, flashstart, seguridad empresarial, tipos de ciberseguridad, ejemplos de ciberseguridad, amenazas cibernéticas, phishing, ransomware, keylogger, sniffing">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ardo.technology/flashstart-dns">
+
+    <!-- Geo Tags for Mexico -->
+    <meta name="geo.region" content="MX" />
+    <meta name="geo.placename" content="México" />
+    <meta name="geo.position" content="19.4326;-99.1332" />
+    <meta name="ICBM" content="19.4326, -99.1332" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FlashStart DNS Filtering | Ciberseguridad Empresarial México">
+    <meta property="og:description"
+        content="Solución de ciberseguridad con filtrado DNS inteligente. Protege tu empresa contra malware, ransomware, phishing y amenazas cibernéticas con IA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ardo.technology/flashstart-dns">
+    <meta property="og:image" content="https://ardo.technology/flashstart-dns/images/og-flashstart.jpg">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "FlashStart DNS Filtering Service",
+      "image": "https://ardo.technology/flashstart-dns/images/flashstart-logo.png",
+      "@id": "https://ardo.technology/flashstart-dns",
+      "url": "https://ardo.technology/flashstart-dns",
+      "description": "Solución de ciberseguridad empresarial con filtrado DNS inteligente. Protección contra malware, ransomware, phishing, keyloggers, sniffing, botnets y amenazas cibernéticas. Empresas de ciberseguridad en México confían en FlashStart para seguridad informática avanzada con IA.",
+      "brand": {
+        "@type": "Brand",
+        "name": "FlashStart"
+      },
+      "category": "Cybersecurity Software",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://ardo.technology/flashstart-dns",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "500"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ARDO Technology - FlashStart Partner",
+      "url": "https://ardo.technology",
+      "logo": "https://ardo.technology/images/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-442-980-3200",
+        "contactType": "Sales",
+        "areaServed": "MX",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ardotechnology",
+        "https://www.mx.linkedin.com/company/ardotechnology"
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="images/Logo.webp" alt="ARDO Technology Logo" style="height: 40px;">
+                </a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="nav-links">
+                    <a href="#beneficios">Beneficios</a>
+                    <a href="#funciones">Funciones</a>
+                    <a href="#casos-uso">Aplicaciones</a>
+                    <a href="#contacto" class="btn btn-primary">Solicitar Demo</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badges">
+                        <span class="badge">🛡️ Protección con IA</span>
+                        <span class="badge">⚡ Red Global Anycast</span>
+                        <span class="badge">☁️ 100% Cloud</span>
+                    </div>
+                    <h1>Ciberseguridad Empresarial con <span class="text-gradient">FlashStart DNS</span></h1>
+                    <p>Solución de seguridad informática con filtrado DNS inteligente que bloquea malware, ransomware,
+                        phishing y amenazas cibernéticas antes de que lleguen a tu red.</p>
+                    <div class="hero-cta">
+                        <a href="#contacto" class="btn btn-primary">Solicitar Demostración</a>
+                        <a href="https://wa.me/524429803200?text=Hola,%20quiero%20información%20sobre%20FlashStart%20DNS"
+                            target="_blank" class="btn"
+                            style="background-color: #25D366; color: white; margin-left: 10px; display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div style="text-align: center;">
+                            <i class="fa-solid fa-shield-halved"
+                                style="font-size: 80px; color: var(--primary-color); margin-bottom: 20px;"></i>
+                            <h3 style="margin-bottom: 15px; color: var(--text-primary);">Protección en Tiempo Real</h3>
+                            <p style="color: var(--text-secondary);">IA que analiza <strong>decenas de miles</strong> de
+                                dominios diariamente con <strong>+92.5%</strong> de precisión</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="section-padding benefits-section">
+        <div class="container">
+            <div class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Beneficios de Ciberseguridad con FlashStart</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem;">Una solución completa de ciberseguridad
+                    empresarial que protege contra amenazas, optimiza tu red y simplifica la gestión de seguridad
+                    informática.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <!-- Benefit 1: Security -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3>Ciberseguridad Avanzada</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Protección contra <strong>malware, ransomware y botnets</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Bloqueo proactivo de <strong>phishing y robo de datos</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Prevención de <strong>DDoS y blacklisting</strong> de IPs</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>IA con <strong>+92.5% de precisión predictiva</strong></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefit 2: Performance -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3>Alto Rendimiento</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Red global Anycast</strong> en múltiples continentes</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Latencia casi nula</strong> para usuarios finales</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Uno de los <strong>DNS más rápidos del mundo</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Redundancia total</strong> y disponibilidad 24/7</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefit 3: Easy Management -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h3>Gestión Simplificada</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>100% cloud</strong> - sin hardware adicional</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Dashboard centralizado</strong> multi-tenant</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Integración con <strong>Active Directory</strong> y MikroTik</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Reportes detallados</strong> en tiempo real</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefit 4: Content Control -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <h3>Control de Contenido</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>200 categorías</strong> de sitios web</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Bloqueo de contenido <strong>explícito e inapropiado</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Geoblocking</strong> de países de alto riesgo</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Políticas por <strong>usuarios, grupos y horarios</strong></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefit 5: Productivity -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Aumento de Productividad</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Bloqueo de <strong>redes sociales y juegos</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Control de <strong>streaming y distracciones</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Horarios personalizados</strong> de acceso</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>App Blocker</strong> para aplicaciones específicas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefit 6: Cost Savings -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3>Ahorro y Eficiencia</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Sin inversión inicial</strong> en hardware</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Cero mantenimiento</strong> de equipos físicos</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span><strong>Actualizaciones automáticas</strong> sin costo</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Reducción de <strong>llamadas de soporte</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="funciones" class="section-padding features">
+        <div class="container">
+            <div class="text-center" style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Funciones Principales</h2>
+                <p style="color: var(--text-secondary);">Herramientas avanzadas para proteger y gestionar el acceso a
+                    internet de tu organización.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Escaneo continuo y categorización automática de millones de sitios web con alta precisión.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-virus-slash"></i></div>
+                    <h3>Protección contra Malware</h3>
+                    <p>Bloqueo proactivo de dominios asociados con malware, ransomware, botnets y otras amenazas
+                        cibernéticas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-fish-fins"></i></div>
+                    <h3>Protección Anti-Phishing</h3>
+                    <p>Detección y bloqueo de sitios de phishing, spoofing y ataques de ingeniería social para proteger
+                        credenciales y datos sensibles de tu empresa.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>200 Categorías</h3>
+                    <p>Filtrado granular por categorías: adultos, juegos, redes sociales, streaming y más.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Geoblocking</h3>
+                    <p>Bloqueo completo de navegación en países de alto riesgo cibernético.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>Red Anycast Global</h3>
+                    <p>Infraestructura distribuida en múltiples continentes para máxima velocidad y disponibilidad.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Safe Search</h3>
+                    <p>Forzado de búsqueda segura en motores como Google, Bing y YouTube.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-laptop-mobile"></i></div>
+                    <h3>Protección Endpoints</h3>
+                    <p>ClientShield para Windows, Mac, Android, iOS y Chromebook con protección remota.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Reportes Detallados</h3>
+                    <p>Informes históricos e instantáneos con visibilidad completa de actividad web.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-brands fa-microsoft"></i></div>
+                    <h3>Integración AD</h3>
+                    <p>Sincronización nativa con Microsoft Active Directory para gestión de usuarios.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-ban"></i></div>
+                    <h3>App Blocker</h3>
+                    <p>Bloqueo de aplicaciones específicas con control por horarios.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3>IP Blocking</h3>
+                    <p>Bloqueo automático de IPs públicas con mala reputación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="casos-uso" class="section-padding use-cases">
+        <div class="container">
+            <div class="text-center" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Aplicaciones y Casos de Uso</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem;">FlashStart se adapta a las necesidades de
+                    diferentes organizaciones y sectores.</p>
+            </div>
+
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-building"></i></div>
+                    <h3>Empresas</h3>
+                    <p>Protección contra amenazas y control de productividad</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-school"></i></div>
+                    <h3>Escuelas K-12</h3>
+                    <p>Protección de menores y cumplimiento normativo</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <h3>ISPs</h3>
+                    <p>Servicio de valor agregado para clientes</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>MSPs</h3>
+                    <p>Solución escalable multi-tenant</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h3>Gobierno</h3>
+                    <p>Seguridad integral para entidades públicas</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Retail</h3>
+                    <p>Protección de redes en puntos de venta</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-house"></i></div>
+                    <h3>Hogares</h3>
+                    <p>Control parental y navegación segura</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>Trabajo Remoto</h3>
+                    <p>Protección de dispositivos fuera de oficina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cybersecurity Education Section -->
+    <section class="section-padding" style="background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);">
+        <div class="container">
+            <div class="text-center" style="text-align: center; max-width: 900px; margin: 0 auto 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">¿Qué es la Ciberseguridad y Por Qué es Importante?
+                </h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem;">La ciberseguridad es el conjunto de
+                    prácticas, tecnologías y procesos diseñados para proteger sistemas, redes y datos contra amenazas
+                    cibernéticas. En México, las empresas de ciberseguridad están en constante evolución para enfrentar
+                    nuevos tipos de ataques.</p>
+            </div>
+
+            <div
+                style="background: var(--white); padding: 40px; border-radius: 20px; box-shadow: var(--shadow-md); max-width: 1000px; margin: 0 auto;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: var(--primary-color);">Tipos de Amenazas
+                    Cibernéticas que FlashStart Bloquea</h3>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 30px;">
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i class="fa-solid fa-bug"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Malware y Ransomware</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Software malicioso que infecta
+                            sistemas para robar datos o cifrar archivos exigiendo rescate.</p>
+                    </div>
+
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i class="fa-solid fa-fish-fins"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Phishing y Spoofing</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Ataques de ingeniería social que
+                            engañan a usuarios para robar credenciales y datos sensibles.</p>
+                    </div>
+
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i class="fa-solid fa-keyboard"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Keyloggers y Sniffing</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Herramientas que capturan
+                            pulsaciones de teclado o interceptan tráfico de red para robar información.</p>
+                    </div>
+
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i class="fa-solid fa-hammer"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Fuerza Bruta</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Ataques automatizados que intentan
+                            descifrar contraseñas probando múltiples combinaciones.</p>
+                    </div>
+
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i
+                                class="fa-solid fa-network-wired"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Botnets</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Redes de dispositivos infectados
+                            controlados remotamente para lanzar ataques coordinados.</p>
+                    </div>
+
+                    <div
+                        style="padding: 20px; background: var(--light-bg); border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                        <h4 style="margin-bottom: 10px; color: var(--text-primary);"><i class="fa-solid fa-virus"
+                                style="color: var(--accent-color); margin-right: 8px;"></i>Gusanos Informáticos</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Programas que se replican
+                            automáticamente y se propagan a través de redes sin intervención humana.</p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 25px; border-radius: 15px; color: white; text-align: center;">
+                    <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>FlashStart protege tu empresa contra
+                            todas estas amenazas</strong></p>
+                    <p style="font-size: 0.95rem; opacity: 0.9;">Nuestra solución de ciberseguridad empresarial utiliza
+                        inteligencia artificial para identificar y bloquear amenazas en tiempo real, manteniendo tu red
+                        segura 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+
+    <section class="section-padding stats-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">FlashStart en Números</h2>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Tecnología de vanguardia respaldada por
+                    resultados comprobados</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">92.5%</div>
+                    <div class="stat-label">Precisión de IA</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">200</div>
+                    <div class="stat-label">Categorías de Filtrado</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Disponibilidad Global</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">0ms</div>
+                    <div class="stat-label">Latencia Casi Nula</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Form -->
+    <section id="contacto" class="section-padding cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>¿Listo para proteger tu red?</h2>
+                <p style="margin-bottom: 30px;">Solicita una demostración gratuita de FlashStart y descubre cómo puede
+                    transformar la seguridad de tu organización.</p>
+
+                <iframe src="https://aoi.ardo.technology/forms/wtl/529291185b079044bc1baa69571d4370" width="100%"
+                    height="650" frameborder="0"
+                    sandbox="allow-top-navigation allow-forms allow-scripts allow-same-origin allow-popups"
+                    allowfullscreen style="width: 100%; margin: 0 auto; display: block;">
+                </iframe>
+                <p style="font-size: 0.8rem; color: #64748b; margin-top: 15px;">Tus datos están protegidos. No hacemos
+                    spam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="images/ardotechnology.png" alt="ARDO Technology"
+                        style="max-width: 112px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p>Protección DNS empresarial con inteligencia artificial. Distribuido por ARDO Technology en
+                        México.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#funciones">Funciones</a></li>
+                        <li><a href="#casos-uso">Casos de Uso</a></li>
+                        <li><a href="https://www.flashstart.com" target="_blank">Sitio Oficial FlashStart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>📍 Querétaro, México</li>
+                        <li>📞 800-953-0017</li>
+                        <li>📱 <a href="https://wa.me/524429803200" target="_blank">WhatsApp: +52 442 980 3200</a></li>
+                        <li>✉️ <a href="mailto:contacto@ardo.technology">contacto@ardo.technology</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ARDO DE MEXICO SAPI DE CV. FlashStart Partner Autorizado. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

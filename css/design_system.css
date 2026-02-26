@@ -1,0 +1,378 @@
+/* 
+  Ardo Technology - Unified Design System 
+  Version: 1.0.0 (Next Gen)
+  Theme: Institutional Premium / Infra-Tech
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+    /* Colors - "Next Gen" Palette */
+    --ardo-primary: #00F0FF;
+    /* Electric Cyan */
+    --ardo-midnight: #050505;
+    /* Obsidian Midnight */
+    --ardo-deep-blue: #0A192F;
+    /* Deep Ardo Blue */
+    --ardo-surface: #F8FAFB;
+    /* Light Surface */
+    --ardo-border: #E2E8F0;
+    /* Standard Border */
+    --ardo-text-main: #050505;
+    --ardo-text-muted: rgba(10, 25, 47, 0.6);
+
+    /* Typography */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Shadows & Effects */
+    --ardo-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --ardo-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --ardo-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --ardo-glow: 0 4px 14px 0 rgba(0, 240, 255, 0.39);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: var(--ardo-text-main);
+    font-family: var(--font-display);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Background Systems */
+.grid-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(var(--ardo-deep-blue) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Typography Utilities */
+.text-huge {
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.text-mono-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.text-cyan {
+    color: var(--ardo-primary);
+}
+
+/* Components: Glass Panel */
+/* Components: Glass Panel */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--ardo-shadow-sm);
+}
+
+/* Components: Bento Card */
+.bento-card {
+    position: relative;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid var(--ardo-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 240, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Components: Buttons */
+.btn-primary {
+    background: var(--ardo-primary);
+    color: var(--ardo-midnight);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: var(--ardo-glow);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+    transform: scale(1.02);
+}
+
+.btn-dark {
+    background: var(--ardo-midnight);
+    color: #FFFFFF;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background: var(--ardo-deep-blue);
+}
+
+/* Special Effects */
+.scan-line {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 50%, transparent 50%);
+    background-size: 100% 8px;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    background: var(--ardo-surface);
+    border: 1px solid var(--ardo-border);
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ardo-primary);
+    position: relative;
+}
+
+.dot.pulse::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--ardo-primary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Layout foundations (Bento Grid Example) */
+.bento-grid,
+.services-grid,
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (FRONTEND SENIOR REFINEMENTS)
+   ========================================================================== */
+
+/* 1. Global Viewport Safety */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+    /* Container Refinements */
+    .container {
+        padding: 0 1.5rem !important;
+    }
+
+    /* Internal Pages Structure */
+    .internal-page-redesign section {
+        padding: 40px 0 !important;
+    }
+
+    /* Stacking All 2-Column Inline Grids */
+    div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"],
+    div[style*="display: grid"][style*="grid-template-columns: 1fr 1.5fr"],
+    div[style*="display: grid"][style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* Stacking 3-Column Inline Grids */
+    div[style*="display: grid"][style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Typography Scalability */
+    .text-huge {
+        font-size: clamp(2rem, 8vw, 2.5rem) !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    h1.text-huge {
+        font-size: 2.2rem !important;
+    }
+
+    /* Internal Hero Refinements */
+    .hero-internal {
+        height: auto !important;
+        min-height: 200px !important;
+        padding: 30px 0 !important;
+    }
+
+    .hero-internal .glass-panel {
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+    }
+
+    /* Visual Order: Image above text on stack */
+    .hero-visual {
+        order: -1 !important;
+    }
+
+    .hero-visual .bento-card {
+        height: 350px !important;
+    }
+
+    /* Fix for "Diferénciese" and similar icon-text stacks */
+    div[style*="display: grid"][style*="gap: 2rem"] {
+        gap: 1.5rem !important;
+    }
+
+    /* Buttons Mobile Friendly */
+    .btn-primary,
+    .btn-dark {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 1.25rem !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .internal-page-redesign section {
+        padding: 60px 0 !important;
+    }
+
+    /* Partner Grid Refinement */
+    .brand-partners-content div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .partner-logo-box {
+        height: 90px !important;
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-partners-content div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Base Components (Restored) */
+.service-card,
+.benefit-item {
+    background: #FFFFFF;
+    border: 1px solid var(--ardo-border);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover,
+.benefit-item:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 240, 255, 0.3);
+    transform: translateY(-4px);
+}
+
+.service-card h3,
+.benefit-item h3 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.service-card p,
+.benefit-item p {
+    color: var(--ardo-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.service-card-icon,
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--ardo-surface);
+    border: 1px solid var(--ardo-border);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.service-card-icon i,
+.benefit-icon img {
+    font-size: 1.5rem;
+    color: var(--ardo-midnight);
+}

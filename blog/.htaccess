@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Universal Routing
+# No RewriteBase needed; relies on relative paths to work in both 
+# /blog/ (production) and /subdir/blog/ (local) environments.
+
+# Map sitemap.xml to sitemap.php
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# If the request is for a real file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise, redirect to index.php using query string (safer for shared hosting)
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ardo Technology | Telefonía Local Acapulco</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Using Inter for Geist Sans placeholder as requested by typography rules, applying heavy weight and tight tracking for headlines -->
+    <style>
+        .headline-font {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .mono-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .body-font {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(15, 34, 35, 0.1);
+        }
+
+        .grid-bg {
+            background-size: 32px 32px;
+            background-image: linear-gradient(to right, rgba(15, 34, 35, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 34, 35, 0.03) 1px, transparent 1px);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00eeff", // Electric Cyan
+                        "obsidian": "#0f2223", // Obsidian Midnight
+                        "slate-gray": "#64748b",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f2223",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem", // 8px max per requirements
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light text-obsidian body-font selection:bg-primary/30">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-obsidian/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="size-6 bg-obsidian flex items-center justify-center rounded-sm">
+                    <span class="material-symbols-outlined text-primary text-[18px]">adjust</span>
+                </div>
+                <span class="headline-font text-xl uppercase tracking-tighter">Ardo<span
+                        class="text-slate-gray font-normal">.Tech</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a class="hover:text-primary transition-colors" href="#">Servicios</a>
+                <a class="hover:text-primary transition-colors" href="#">Compañía</a>
+                <a class="hover:text-primary transition-colors" href="#">Blog</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-primary text-obsidian px-5 py-2 rounded-lg text-sm font-bold headline-font border border-primary hover:bg-transparent hover:text-obsidian transition-all">
+                    ACCESO CLIENTES
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="grid-bg min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-16 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        <span class="mono-font text-[10px] font-bold tracking-widest text-obsidian">ACAPULCO NODE_744
+                            ACTIVE</span>
+                    </div>
+                    <h1 class="headline-font text-5xl md:text-7xl mb-6 leading-[0.95] text-obsidian">
+                        Telefonía Local en Acapulco: <br />
+                        <span class="" style="color: #00F0FF;">Infraestructura Crítica.</span>
+                    </h1>
+                    <p class="text-lg text-slate-gray max-w-xl mb-10 leading-relaxed">
+                        Sistemas de comunicación industrial de alto rendimiento con redundancia local y protocolos de
+                        seguridad de grado ingeniería para negocios que no se detienen.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-obsidian text-white px-8 py-4 rounded-lg font-bold text-sm tracking-widest flex items-center gap-2 hover:bg-obsidian/90 transition-all">
+                            DESPLEGAR INFRAESTRUCTURA
+                            <span class="material-symbols-outlined text-primary">terminal</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div
+                        class="aspect-square w-full rounded-lg border border-obsidian/10 overflow-hidden relative shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-obsidian/20 to-transparent z-10"></div>
+                        <img class="w-full h-full object-cover grayscale contrast-125 opacity-90"
+                            data-alt="Modern high-tech skyscraper in a coastal city"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS2tO8rn6LjmV5mQXDjnAciG9i-YtGxnL0cfYVrfEREwNX71AV7st3SEE9yYomh2s97Y-z2m55qAQe9_wBxMsQl1-dp-KvQOZKi2YyQM6KmsoDRdDEqDMJq8TjPafWKpQNi7zyUI1UU1EIXIDMJs4UbQf3zyCoG5tUK1_MpRGIK9iO2X_Y8D6zuk_vikKMt59V29RNp3Q8qdaEqigHXC0jlfEjpH7YY9aaP6QvOVD3jmUabhY9T5pfuWkYJiDUH-ZzSCKI1beNMXQ" />
+                        <div class="absolute bottom-4 left-4 z-20 glass-card p-4 rounded-lg border border-primary/30">
+                            <p class="mono-font text-[10px] text-slate-gray mb-1">LATENCY_CORE</p>
+                            <p class="mono-font text-xl font-bold text-obsidian">12.4ms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Metrics Strip -->
+        <section class="border-y border-obsidian/5 bg-white/50 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-obsidian/5">
+                <div class="p-8 flex flex-col items-center md:items-start">
+                    <span class="mono-font text-xs text-slate-gray mb-2">SYSTEM_UPTIME</span>
+                    <span class="mono-font text-3xl font-bold text-obsidian">99.99<span
+                            class="text-primary">%</span></span>
+                </div>
+                <div class="p-8 flex flex-col items-center md:items-start">
+                    <span class="mono-font text-xs text-slate-gray mb-2">LOCAL_LATENCY</span>
+                    <span class="mono-font text-3xl font-bold text-obsidian">&lt;15ms</span>
+                </div>
+                <div class="p-8 flex flex-col items-center md:items-start">
+                    <span class="mono-font text-xs text-slate-gray mb-2">DC_RATING</span>
+                    <span class="mono-font text-3xl font-bold text-obsidian">TIER-4</span>
+                </div>
+                <div class="p-8 flex flex-col items-center md:items-start">
+                    <span class="mono-font text-xs text-slate-gray mb-2">ACTIVE_PREFIXES</span>
+                    <span class="mono-font text-3xl font-bold text-obsidian">744<span
+                            class="text-slate-gray/40">_EXT</span></span>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid Section -->
+        <section class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="headline-font text-4xl mb-4 tracking-tighter uppercase">Powerhouse Benefits</h2>
+                        <p class="text-slate-gray max-w-md">Ingeniería de red optimizada para el ecosistema empresarial
+                            de Acapulco.</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <span
+                            class="mono-font text-[10px] text-slate-gray tracking-tighter">VER_V1.1_SYSTEM_SPECS</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Card 1 -->
+                    <div
+                        class="glass-card p-8 rounded-lg border border-obsidian/10 flex flex-col justify-between min-h-[300px] hover:border-primary/50 transition-colors group">
+                        <div
+                            class="size-12 rounded-lg bg-obsidian flex items-center justify-center mb-6 group-hover:shadow-[0_0_15px_rgba(0,238,255,0.3)] transition-shadow">
+                            <span class="material-symbols-outlined text-primary">speed</span>
+                        </div>
+                        <div>
+                            <h3 class="headline-font text-xl mb-3">Baja Latencia</h3>
+                            <p class="text-slate-gray text-sm leading-relaxed">Peering local directo en Acapulco para
+                                respuesta inmediata. Reducción de saltos de red en un 60% comparado con proveedores
+                                nacionales.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="glass-card p-8 rounded-lg border border-obsidian/10 flex flex-col justify-between min-h-[300px] hover:border-primary/50 transition-colors group md:translate-y-4">
+                        <div
+                            class="size-12 rounded-lg bg-obsidian flex items-center justify-center mb-6 group-hover:shadow-[0_0_15px_rgba(0,238,255,0.3)] transition-shadow">
+                            <span class="material-symbols-outlined text-primary">dialpad</span>
+                        </div>
+                        <div>
+                            <h3 class="headline-font text-xl mb-3">Prefijos Locales</h3>
+                            <p class="text-slate-gray text-sm leading-relaxed">Numeración nativa 744 para presencia
+                                institucional robusta. Portabilidad inmediata y asignación de rangos DID exclusivos.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="glass-card p-8 rounded-lg border border-obsidian/10 flex flex-col justify-between min-h-[300px] hover:border-primary/50 transition-colors group">
+                        <div
+                            class="size-12 rounded-lg bg-obsidian flex items-center justify-center mb-6 group-hover:shadow-[0_0_15px_rgba(0,238,255,0.3)] transition-shadow">
+                            <span class="material-symbols-outlined text-primary">encrypted</span>
+                        </div>
+                        <div>
+                            <h3 class="headline-font text-xl mb-3">Protocolos Seguros</h3>
+                            <p class="text-slate-gray text-sm leading-relaxed">Cifrado TLS/SRTP integrado de extremo a
+                                extremo. Protección contra ataques SIP-flood y mitigación DDoS perimetral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Technical Specs Table Section -->
+        <section class="py-24 px-6 bg-obsidian text-white overflow-hidden relative">
+            <div class="absolute inset-0 grid-bg opacity-5"></div>
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="headline-font text-3xl mb-2 tracking-tighter uppercase">Technical Specification</h2>
+                    <div class="h-1 w-20 bg-primary"></div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="py-4 mono-font text-[10px] text-slate-gray tracking-widest">PARAM_ID</th>
+                                <th class="py-4 mono-font text-[10px] text-slate-gray tracking-widest">
+                                    INFRASTRUCTURE_METRIC</th>
+                                <th class="py-4 mono-font text-[10px] text-slate-gray tracking-widest text-right">
+                                    STATUS_VALUE</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr>
+                                <td class="py-6 mono-font text-sm text-slate-gray">#ACA-01</td>
+                                <td class="py-6 headline-font text-lg uppercase">Redundancia de Fibra Local</td>
+                                <td class="py-6 text-right">
+                                    <span
+                                        class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-sm mono-font text-xs">TRIPLE_PATH</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-6 mono-font text-sm text-slate-gray">#ACA-02</td>
+                                <td class="py-6 headline-font text-lg uppercase">Protocolo de Voz sobre IP</td>
+                                <td class="py-6 text-right mono-font text-sm">SIP v2.0 / SRTP-AES256</td>
+                            </tr>
+                            <tr>
+                                <td class="py-6 mono-font text-sm text-slate-gray">#ACA-03</td>
+                                <td class="py-6 headline-font text-lg uppercase">Data Center Tiering</td>
+                                <td class="py-6 text-right mono-font text-sm">Tier-4 Certified (ANSI/TIA-942)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-6 mono-font text-sm text-slate-gray">#ACA-04</td>
+                                <td class="py-6 headline-font text-lg uppercase">Peering Local Acapulco</td>
+                                <td class="py-6 text-right">
+                                    <span class="text-primary mono-font text-sm">ACTIVE (0ms jitter)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="mt-16 p-8 border border-white/10 rounded-lg flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div>
+                        <h3 class="headline-font text-2xl mb-2">¿Listo para escalar su infraestructura?</h3>
+                        <p class="text-slate-gray text-sm">Hable con un ingeniero especializado en despliegue regional.
+                        </p>
+                    </div>
+                    <button
+                        class="bg-primary text-obsidian px-10 py-4 rounded-lg font-bold text-sm tracking-widest hover:scale-105 transition-transform">
+                        SOLICITAR CONSULTA TÉCNICA
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="py-12 border-t border-obsidian/5 px-6 bg-white">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="size-5 bg-obsidian flex items-center justify-center rounded-sm">
+                            <span class="material-symbols-outlined text-primary text-[14px]">adjust</span>
+                        </div>
+                        <span class="headline-font text-lg uppercase tracking-tighter">Ardo<span
+                                class="text-slate-gray font-normal">.Tech</span></span>
+                    </div>
+                    <p class="text-xs text-slate-gray mono-font uppercase">© 2024 Ardo Technology Group. Built for
+                        performance.</p>
+                </div>
+                <div class="flex gap-12">
+                    <div>
+                        <p class="mono-font text-[10px] text-obsidian font-bold mb-4 uppercase">Network</p>
+                        <ul class="text-xs text-slate-gray space-y-2">
+                            <li><a class="hover:text-primary transition-colors" href="#">Nodes Status</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">API Docs</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">SLA</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-font text-[10px] text-obsidian font-bold mb-4 uppercase">Legal</p>
+                        <ul class="text-xs text-slate-gray space-y-2">
+                            <li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ARDO Technology Brand System v1.0</title>
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Inter, JetBrains Mono (Geist Sans alternative is not on Google, using Inter for headlines as per theme and Inter/JetBrains as requested) -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050505',
+                        ardoBlue: '#0A192F',
+                        electricCyan: '#00F0FF',
+                        slateGray: '#8892B0',
+                        pureWhite: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    letterSpacing: {
+                        headline: '-0.02em',
+                    },
+                    borderRadius: {
+                        'eight': '8px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style data-purpose="typography">
+        h1,
+        h2,
+        h3,
+        h4 {
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .technical-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8892B0;
+        }
+    </style>
+    <style data-purpose="layout">
+        body {
+            background-color: #FAFAFA;
+            color: #050505;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .dark-glass-card {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body class="p-8 md:p-16 lg:p-24">
+    <!-- BEGIN: MainHeader -->
+    <header class="mb-20 border-b border-gray-200 pb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+        <div data-purpose="branding-title">
+            <div class="flex items-center gap-6 mb-8">
+                <img src="images/logo.svg" alt="Ardo Logo" class="h-16">
+                <a href="images/logo.svg" download
+                    class="flex items-center gap-2 text-slateGray hover:text-electricCyan transition-colors font-mono text-xs uppercase tracking-widest border border-gray-200 rounded-eight px-4 py-2 hover:border-electricCyan">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    <span>Download SVG</span>
+                </a>
+            </div>
+            <span class="technical-label">Brand Identity Guidelines</span>
+            <h1 class="text-5xl mt-2">Ardo Brand System <span class="text-electricCyan">v1.0</span></h1>
+            <p class="text-slateGray mt-4 max-w-xl">A master reference for the Ardo digital ecosystem, focusing on Light
+                Engineering, precision, and the power of infrastructure.</p>
+        </div>
+        <div class="text-right">
+            <div class="technical-label">Status</div>
+            <div class="flex items-center gap-2 mt-1">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="font-bold">ACTIVE SYSTEM</span>
+            </div>
+        </div>
+    </header>
+    <!-- END: MainHeader -->
+    <main class="space-y-32">
+        <!-- BEGIN: BrandEssence -->
+        <section data-purpose="section-essence" id="brand-essence">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h2 class="text-2xl mb-4">01. Brand Essence</h2>
+                    <p class="text-sm text-slateGray leading-relaxed">The foundational philosophy driving every visual
+                        and functional decision within the Ardo ecosystem.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-4xl font-light mb-6 leading-tight italic">"The Invisible Powerhouses"</h3>
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        Ardo is the bedrock. Like the complex engineering beneath a city, our technology is felt through
+                        its reliability and seen through its precision. We prioritize technical excellence over
+                        decorative excess. Every pixel serves a purpose; every line represents a connection.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- END: BrandEssence -->
+        <!-- BEGIN: LogoUsage -->
+        <section data-purpose="section-logo" id="logo-usage">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">02. Logo Usage</h2>
+                <p class="text-slateGray text-sm">Flexible deployment for light and dark environments.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Light Mode Logo -->
+                <div
+                    class="bg-white border border-gray-100 rounded-eight p-16 flex flex-col items-center justify-center min-h-[300px]">
+                    <img src="images/logo.svg" class="w-64 max-w-full mb-8" alt="Ardo Logo Black">
+                    <p class="technical-label">Primary: Black on Light</p>
+                </div>
+                <!-- Dark Mode Logo -->
+                <div
+                    class="bg-obsidian rounded-eight p-16 flex flex-col items-center justify-center min-h-[300px] border border-ardoBlue">
+                    <div class="w-64 h-24 mb-8 flex items-center justify-center overflow-hidden">
+                        <img src="images/logo.svg" alt="Ardo Logo Cyan" class="max-w-full h-auto relative -top-[1000px]"
+                            style="filter: drop-shadow(0 1000px 0 #00F0FF);">
+                    </div>
+                    <p class="technical-label mt-8 !text-slate-500">Secondary: Cyan on Dark</p>
+                </div>
+            </div>
+        </section>
+        <!-- END: LogoUsage -->
+        <!-- BEGIN: ColorArchitecture -->
+        <section data-purpose="section-colors" id="color-architecture">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">03. Color Architecture</h2>
+                <p class="text-slateGray text-sm">A palette inspired by late-night terminals and high-end industrial
+                    design.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Obsidian -->
+                <div class="space-y-3">
+                    <div class="h-40 w-full bg-obsidian rounded-eight border border-gray-200"></div>
+                    <div>
+                        <div class="font-bold">Obsidian Midnight</div>
+                        <div class="text-xs font-mono text-slateGray uppercase mt-1">#050505</div>
+                        <div class="text-xs font-mono text-slate-400">R:5 G:5 B:5</div>
+                    </div>
+                </div>
+                <!-- Ardo Blue -->
+                <div class="space-y-3">
+                    <div class="h-40 w-full bg-ardoBlue rounded-eight border border-gray-200"></div>
+                    <div>
+                        <div class="font-bold">Deep Ardo Blue</div>
+                        <div class="text-xs font-mono text-slateGray uppercase mt-1">#0A192F</div>
+                        <div class="text-xs font-mono text-slate-400">R:10 G:25 B:47</div>
+                    </div>
+                </div>
+                <!-- Electric Cyan -->
+                <div class="space-y-3">
+                    <div
+                        class="h-40 w-full bg-electricCyan rounded-eight border border-gray-200 shadow-lg shadow-cyan-200">
+                    </div>
+                    <div>
+                        <div class="font-bold">Electric Cyan</div>
+                        <div class="text-xs font-mono text-slateGray uppercase mt-1">#00F0FF</div>
+                        <div class="text-xs font-mono text-slate-400">R:0 G:240 B:255</div>
+                    </div>
+                </div>
+                <!-- Slate Gray -->
+                <div class="space-y-3">
+                    <div class="h-40 w-full bg-slateGray rounded-eight border border-gray-200"></div>
+                    <div>
+                        <div class="font-bold">Slate Gray</div>
+                        <div class="text-xs font-mono text-slateGray uppercase mt-1">#8892B0</div>
+                        <div class="text-xs font-mono text-slate-400">R:136 G:146 B:176</div>
+                    </div>
+                </div>
+                <!-- Pure White -->
+                <div class="space-y-3">
+                    <div class="h-40 w-full bg-pureWhite rounded-eight border border-gray-200"></div>
+                    <div>
+                        <div class="font-bold">Pure White</div>
+                        <div class="text-xs font-mono text-slateGray uppercase mt-1">#FFFFFF</div>
+                        <div class="text-xs font-mono text-slate-400">R:255 G:255 B:255</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: ColorArchitecture -->
+        <!-- BEGIN: TypographySystem -->
+        <section data-purpose="section-typography" id="typography-system">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">04. Typography System</h2>
+                <p class="text-slateGray text-sm">Hierarchy optimized for clarity across technical documentation and
+                    marketing.</p>
+            </div>
+            <div class="space-y-12">
+                <div class="border-l-4 border-electricCyan pl-8 py-4">
+                    <div class="technical-label mb-4">Headline / Inter Bold or Black / -0.02em</div>
+                    <p class="text-sm text-slateGray mb-2">Used for main titles and primary headers.</p>
+                    <h4 class="text-6xl text-obsidian font-black">System Intelligence for Modern Infrastructures</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div class="space-y-6">
+                        <div class="technical-label">Body Copy / Inter Regular (400) or Medium (500)</div>
+                        <p class="text-xs text-slateGray">Used for general text, descriptions, and long-form content.
+                        </p>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Ardo utilizes a multi-layered approach to infrastructure management. Our primary goal is to
+                            provide a seamless interface between high-level logic and low-level hardware performance. By
+                            stripping away visual noise, we allow users to focus on the data that matters.
+                        </p>
+                    </div>
+                    <div class="space-y-6 bg-slate-50 p-8 rounded-eight">
+                        <div class="technical-label">Technical Data / JetBrains Mono Medium or SemiBold</div>
+                        <p class="text-xs text-slateGray mb-2">Used for metrics, numbers, and technical labels.</p>
+                        <div class="font-mono text-sm text-ardoBlue space-y-1 font-medium">
+                            <div>[SYSTEM_OK]: Initializing sequence...</div>
+                            <div>[LOAD]: 42.08% :: NODE_01_WEST</div>
+                            <div>[CONN]: 12ms latency detected</div>
+                            <div class="text-electricCyan">&gt; EXECUTE RECOVERY_PROTOCOL_V4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: TypographySystem -->
+        <!-- BEGIN: IconographyStyle -->
+        <section data-purpose="section-icons" id="iconography">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">05. Iconography Style</h2>
+                <p class="text-slateGray text-sm">1px stroke technical icons representing connectivity and data flow.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-12 justify-center py-12 border-y border-gray-100">
+                <!-- Icon 1: Network -->
+                <div class="flex flex-col items-center gap-4">
+                    <svg class="w-12 h-12 text-ardoBlue" fill="none" stroke="currentColor" stroke-width="1"
+                        viewbox="0 0 24 24">
+                        <path
+                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="technical-label text-[10px]">Server.Node</span>
+                </div>
+                <!-- Icon 2: Security -->
+                <div class="flex flex-col items-center gap-4">
+                    <svg class="w-12 h-12 text-ardoBlue" fill="none" stroke="currentColor" stroke-width="1"
+                        viewbox="0 0 24 24">
+                        <path
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="technical-label text-[10px]">Security.Lock</span>
+                </div>
+                <!-- Icon 3: Data Flow -->
+                <div class="flex flex-col items-center gap-4">
+                    <svg class="w-12 h-12 text-ardoBlue" fill="none" stroke="currentColor" stroke-width="1"
+                        viewbox="0 0 24 24">
+                        <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="technical-label text-[10px]">Transfer.Sync</span>
+                </div>
+                <!-- Icon 4: Settings -->
+                <div class="flex flex-col items-center gap-4">
+                    <svg class="w-12 h-12 text-ardoBlue" fill="none" stroke="currentColor" stroke-width="1"
+                        viewbox="0 0 24 24">
+                        <path
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                    <span class="technical-label text-[10px]">Config.Global</span>
+                </div>
+            </div>
+        </section>
+        <!-- END: IconographyStyle -->
+        <!-- BEGIN: UIComponents -->
+        <section data-purpose="section-ui" id="ui-components">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">06. UI Component Library</h2>
+                <p class="text-slateGray text-sm">Samples of Bento layouts and glassmorphism elements.</p>
+            </div>
+            <div class="bento-grid mb-12">
+                <div class="col-span-12 md:col-span-8 glass-card p-8 min-h-[200px] flex flex-col justify-between">
+                    <div class="technical-label">System Overview</div>
+                    <div class="text-2xl mt-4">Node Distribution &amp; Performance</div>
+                    <div class="flex gap-4 mt-6">
+                        <button
+                            class="bg-obsidian text-white px-6 py-2 rounded-eight text-sm font-medium hover:bg-gray-800 transition-colors">Primary
+                            Action</button>
+                        <button
+                            class="border border-gray-200 text-obsidian px-6 py-2 rounded-eight text-sm font-medium hover:bg-gray-50 transition-colors">Secondary</button>
+                        <button
+                            class="text-slateGray px-6 py-2 rounded-eight text-sm font-medium hover:text-obsidian transition-colors">Ghost
+                            Action</button>
+                    </div>
+                </div>
+                <div
+                    class="col-span-12 md:col-span-4 bg-obsidian rounded-eight p-8 flex flex-col justify-center text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20">
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="1"></path>
+                        </svg>
+                    </div>
+                    <div class="technical-label !text-electricCyan">Real-time Data</div>
+                    <div class="text-4xl font-mono mt-2">99.98%</div>
+                    <div class="text-xs text-slateGray mt-2">Global Uptime Standard</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="dark-glass-card p-12 bg-obsidian border-cyan-500/20">
+                    <div class="technical-label mb-6">Dark Theme (Theme 4)</div>
+                    <div class="space-y-4">
+                        <div class="h-2 w-full bg-ardoBlue rounded-full overflow-hidden">
+                            <div class="h-full bg-electricCyan w-[75%]"></div>
+                        </div>
+                        <div class="flex justify-between text-xs font-mono text-slateGray">
+                            <span>STORAGE: 750GB</span>
+                            <span>TOTAL: 1TB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-12 glass-card">
+                    <div class="technical-label mb-6">Light Theme (Theme 8)</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white border border-gray-100 rounded-eight">
+                            <span class="block text-xs text-slateGray font-mono">LATENCY</span>
+                            <span class="text-xl font-bold">14ms</span>
+                        </div>
+                        <div class="p-4 bg-white border border-gray-100 rounded-eight">
+                            <span class="block text-xs text-slateGray font-mono">USERS</span>
+                            <span class="text-xl font-bold">2.4k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: UIComponents -->
+        <!-- BEGIN: VisualPrinciples -->
+        <section class="pb-20" data-purpose="section-principles" id="visual-principles">
+            <div class="mb-10">
+                <h2 class="text-2xl mb-2">07. Visual Principles</h2>
+                <p class="text-slateGray text-sm">The non-negotiable rules for the Ardo brand.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <h4 class="text-xl">Negative Space is Luxury</h4>
+                    <p class="text-sm text-slateGray leading-relaxed">Don't be afraid of empty space. Breathing room
+                        signifies confidence and technical maturity. Avoid clutter at all costs.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-xl">Technical Precision</h4>
+                    <p class="text-sm text-slateGray leading-relaxed">Align to grids. Use consistent spacing (multiples
+                        of 4 or 8). Borders should be thin (1px) and subtle.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-xl">Digital Energy</h4>
+                    <p class="text-sm text-slateGray leading-relaxed">Use Electric Cyan sparingly as an accent to draw
+                        attention to interactive elements or key data points.</p>
+                </div>
+            </div>
+        </section>
+        <!-- END: VisualPrinciples -->
+    </main>
+    <!-- BEGIN: Footer -->
+    <footer
+        class="mt-20 pt-12 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-xs text-slateGray font-mono uppercase tracking-widest">
+        <div>© 2024 Ardo Technology Systems</div>
+        <div class="mt-4 md:mt-0">Confidential - Internal Use Only</div>
+        <div class="mt-4 md:mt-0">Build: 1.0.4-Stable</div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>
