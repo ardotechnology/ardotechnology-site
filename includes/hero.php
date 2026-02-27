@@ -1,6 +1,7 @@
 <!-- Hero Redesign: Ardo Next Gen -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<section class="hero-redesign" style="padding: 100px 0; overflow: hidden; position: relative; background: #ffffff;">
+<section class="hero-redesign"
+    style="padding: 2rem 0; overflow: hidden; position: relative; background: #ffffff; min-height: calc(100vh - 120px); display: flex; align-items: center; box-sizing: border-box;">
 
     <!-- Dynamic Mesh Gradient Canvas (Full Background) -->
     <canvas id="hero-gradient-canvas"
@@ -19,14 +20,16 @@
                     Activa</span>
             </div>
 
-            <h1 class="text-huge" style="margin-bottom: 1.5rem; color: var(--ardo-midnight);">
+            <h1 class="text-huge"
+                style="margin-bottom: 1.5rem; color: var(--ardo-midnight); font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.1;">
                 comunicación <span class="text-cyan">Crítica</span> <br> Para Empresas.
             </h1>
 
             <p
                 style="font-size: 1.25rem; color: var(--ardo-text-muted); margin-bottom: 3rem; max-width: 500px; line-height: 1.6;">
-                Modernice la comunicación de su organización con telefonía VoIP de alta fidelidad, Cloud PBX y
-                conectividad robusta diseñada para operar sin interrupciones.
+                Elige el PBX de tu preferencia (VitalPBX, Yeastar, FreePBX, 3CX, etc.), administra tus troncales SIP,
+                números virtuales y minutos, todo desde un mismo lugar. Gestiona tu infraestructura y decide cómo y
+                cuándo gastar con total libertad.
             </p>
 
             <div class="hero-actions" style="display: flex; gap: 1.5rem; align-items: center;">
@@ -38,12 +41,13 @@
         </div>
 
         <div class="hero-visual"
-            style="position: relative; height: 400px; display: flex; align-items: center; justify-content: flex-end;">
+            style="position: relative; height: 100%; min-height: 50vh; display: flex; align-items: center; justify-content: flex-end;">
             <!-- Floating Decorative Element (Lottie Animation) -->
             <div class="lottie-container"
-                style="width: 100%; max-width: none; transform: scale(2.5); transform-origin: right center; margin-right: -200px; z-index: 20;">
+                style="width: 100%; max-width: 750px; display: flex; justify-content: flex-end; align-items: center; z-index: 20;">
                 <lottie-player src="<?php echo $basePath; ?>images/Technology_Network.json" background="transparent"
-                    speed=".2" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+                    speed=".2" style="width: 100%; height: auto; transform: scale(1.2); transform-origin: right center;"
+                    loop autoplay></lottie-player>
             </div>
         </div>
 

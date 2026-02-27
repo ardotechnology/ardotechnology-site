@@ -118,8 +118,8 @@
                         style="font-size: 9px; opacity: 0.4; margin-bottom: 4px; letter-spacing: 0.05em;">UBICACIÓN</p>
                     <p
                         style="font-size: 11px; font-weight: 500; color: var(--ardo-text-muted); margin: 0; line-height: 1.3;">
-                        Av. Antea 1088 Piso 3, Col. Jurica,<br>
-                        Querétaro, Qro. México 76100
+                        Fray Junípero Serra 3101 Piso 6<br>
+                        Santa Fé, Juriquilla, Qro. México 76100
                     </p>
                 </div>
             </div>
