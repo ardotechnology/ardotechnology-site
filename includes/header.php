@@ -564,6 +564,8 @@
                                         <li><a href="<?php echo $basePath; ?>cobertura/">Cobertura Nacional</a></li>
                                         <li><a href="<?php echo $basePath; ?>ardo-partners/">Red de ARDO Partners</a>
                                         </li>
+                                        <li><a href="<?php echo $basePath; ?>responsabilidad-social/">Responsabilidad
+                                                Social</a></li>
                                         <li><a href="<?php echo $basePath; ?>contacto/">Contacto</a></li>
                                     </ul>
                                 </div>
